@@ -16,8 +16,9 @@ body form {
 }
 body form div {
   display: flex;
-  align-items: start;
-  max-width: 50%;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
 body form div input,
 body form div textarea,
@@ -41,6 +42,7 @@ body form div fieldset {
   justify-content: center;
   width: 100%;
   border-radius: 10px;
+  width: 33%;
 }
 body form div .error {
   color: #ff3939;

@@ -29,6 +29,7 @@ function main()
     $('#data_naix').on('blur', validarDataNaix);
     $('#password').on('blur', validarPass);
     $('#data_entrada').on('blur', validarDataEntrada);
+    $('#data_sortida').on('blur', validarDataSortida);
 }
 
 
@@ -211,9 +212,44 @@ function validarDataEntrada(){
         let day = ('0' + date.getDate()).slice(-2);
 
         let minDate = year + '-' + month + '-' + day;
+        
+        //validar que no hagin entrat la data de sortida abans de la d'entrada i en cas de que si que estigui bé
+        if(validarDataSortida()){
+            let data_sortida = new Date($('#data_sortida').val());
+            
+            if(date.getTime() > data_sortida.getTime()){
+                $('#data_sortida').val('');
+            }
+        }
 
         $('#data_sortida').prop('min', minDate);
+        
+        return 1;
+    }
+}
 
+function validarDataSortida(){
+    let data_sortida = $('#data_sortida');
+
+    if($(data_sortida).next().prop('class').includes('error')){
+        $(data_sortida).next().remove();
+        $(data_sortida).removeClass('border-red')
+    }
+
+    
+    if($(data_sortida).val().length == 0){
+        
+        $(data_sortida).addClass('border-red')
+        $(data_sortida).after($(error).text('Es obligatori').clone() );
+        
+        return 0;
+    }else if($(data_sortida).val().trim().length != 10){
+
+        $(data_sortida).addClass('border-red')
+        $(data_sortida).after($(error).text('El format no es correcte').clone());
+        
+        return 0;
+    }else{
         return 1;
     }
 }
