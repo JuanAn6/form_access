@@ -30,6 +30,11 @@ function main()
     $('#password').on('blur', validarPass);
     $('#data_entrada').on('blur', validarDataEntrada);
     $('#data_sortida').on('blur', validarDataSortida);
+    $('#regim').on('blur', validarRegim);
+    $('#proposit').on('blur', validarProposit);
+    $('#num_adults').on('blur', validarNumAdults);
+
+    
 }
 
 
@@ -254,6 +259,75 @@ function validarDataSortida(){
     }
 }
 
+
+function validarRegim(){
+    let regim = $('#regim');
+
+    if($(regim).next().prop('class').includes('error')){
+        $(regim).next().remove();
+        $(regim).removeClass('border-red')
+    }
+    
+    if($(regim).val() == -1){
+        
+        $(regim).addClass('border-red')
+        $(regim).after($(error).text('Es obligatori').clone() );
+        
+        return 0;
+    }else{
+        return 1;
+    }
+}
+
+function validarProposit(){
+    let proposit = $('#proposit');
+
+    if($(proposit).next().prop('class').includes('error')){
+        $(proposit).next().remove();
+        $(proposit).removeClass('border-red')
+    }
+    
+    if($(proposit).val() == -1){
+        
+        $(proposit).addClass('border-red')
+        $(proposit).after($(error).text('Es obligatori').clone() );
+        
+        return 0;
+    }else{
+        return 1;
+    }
+}
+
+function validarNumAdults(){
+    let num_adults = $('#num_adults');
+
+    if($(num_adults).next().prop('class').includes('error')){
+        $(num_adults).next().remove();
+        $(num_adults).removeClass('border-red')
+    }
+
+    if($(num_adults).val().length == 0){
+        
+        $(num_adults).addClass('border-red')
+        $(num_adults).after($(error).text('Es obligatori').clone() );
+        
+        return 0;
+    } else if(isNaN(Number($(num_adults).val()))){
+        
+        $(num_adults).addClass('border-red')
+        $(num_adults).after($(error).text('El format es incorrecte').clone() );
+        
+        return 0;
+    }else if(Number($(num_adults).val()) < 1){
+    
+        $(num_adults).addClass('border-red')
+        $(num_adults).after($(error).text('Minim 1 adult').clone() );
+        
+        return 0;
+    }else{
+        return 1;
+    }
+}
 
 
 function validateForm(event)
