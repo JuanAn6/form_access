@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Accesiblility</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.7.1.min.js" defer></script>
+    <script src="script.js"></script>
+</head>
+<body>
+   
+    <main>
+        <h2>Juan hotels</h2>
+        <form id="form">
+            <div>
+                <fieldset>
+                    <legend>Informació Personal</legend>
+                    
+                    <label for="nom">Nom</label><br>
+                    <input type="text" id="nom" name="nom" ><br>
+                    
+                    <label for="cognoms">Cognoms</label><br>
+                    <input type="text" id="cognoms" name="cognoms" ><br>
+                    
+                    <label for="nif">NIF</label><br>
+                    <input type="text" id="nif" name="nif" ><br>
+
+                    <label for="data_naix">Data naixement</label><br>
+                    <input type="date" id="data_naix" name="data_naix" ><br>
+                    
+                    <label for="password">Password</label><br>
+                    <input type="password" id="password" name="password" ><br>
+
+                </fieldset>
+                <fieldset>
+                    <legend>Detalls de la Reserva</legend>
+                    <label for="data_entrada">Data entrada</label><br>
+                    <input type="date" id="data_entrada" name="data_entrada" ><br>
+                    
+                    <label for="data_sortida">Data sortida</label><br>
+                    <input type="date" id="data_sortida" name="data_sortida" ><br>
+                    
+                    <label for="regim">Regim</label><br>
+                    <select id="regim" name="regim" >
+                        <option value="-1">Selecciona una opció</option>
+                        <option value="SA">SA</option>
+                        <option value="AD">AD</option>
+                        <option value="MP">MP</option>
+                        <option value="PC">PC</option>
+                    </select><br>
+
+                    <label for="proposit">Proposit del viatge</label><br>
+                    <select id="proposit" name="proposit" >
+                        <option value="-1">Selecciona una opció</option>
+                        <option value="oci">Oci</option>
+                        <option value="feina">Feina</option>
+                        <option value="altres">Altres</option>
+                        <option value="PC">PC</option>
+                    </select><br>
+                    
+                    <label for="num-adults">Número de adults</label><br>
+                    <input type="number" id="num-adults" name="num-adults" min="1" ><br>
+                    
+                    <label for="num-nens">Número de nens</label><br>
+                    <input type="number" id="num-nens" name="num-nens" min="1" ><br>
+                    
+                    <div id="div-nens"></div>
+
+                    <label for="tipus">Tipus d'habitació</label><br>
+                    <select id="tipus" name="tipus" >
+                        <option value="-1">Selecciona una opció</option>
+                        <option value="oci">Oci</option>
+                        <option value="feina">Feina</option>
+                        <option value="altres">Altres</option>
+                        <option value="PC">PC</option>
+                    </select><br>
+
+                    <label for="observacions">Observacions</label><br>
+                    <textarea id="observacions" name="observacions" rows="4"></textarea><br>
+                </fieldset>
+            </div>
+            <br>
+            <div>
+                <input type="submit" class="submit" value="Enviar Reserva">
+            </div>
+        </form>
+    </main>
+</body>
+</html>

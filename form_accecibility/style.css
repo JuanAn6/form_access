@@ -1,0 +1,74 @@
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #242424;
+  color: white;
+}
+body main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+body form div {
+  display: flex;
+  align-items: start;
+  max-width: 50%;
+}
+body form div input,
+body form div textarea,
+body form div select {
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: 300ms;
+}
+body form div input:focus,
+body form div textarea:focus,
+body form div select:focus {
+  background-color: #bebeff;
+  border: 0px solid white;
+  padding: 10px;
+}
+body form div fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  border-radius: 10px;
+}
+body form div .error {
+  color: #ff3939;
+  font-weight: lighter;
+  font-size: 13px;
+}
+body form div .border-red {
+  border: 3px solid red;
+}
+body .submit {
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+  transition: 300ms;
+}
+body .submit:hover {
+  border: 1px solid #8181ff;
+  background-color: #bebeff;
+  padding: 12px;
+}
+body .submit:focus {
+  border: 1px solid #8181ff;
+  background-color: #8181ff;
+  padding: 12px;
+}
+body .submit:active {
+  border: 1px solid #8181ff;
+  background-color: #4848ff;
+  padding: 15px;
+  transition: 20ms;
+}
