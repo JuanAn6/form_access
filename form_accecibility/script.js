@@ -8,6 +8,19 @@ function main()
     error = $('<span>').addClass('error');
     icon = $('<i>').addClass('error').text('X');
 
+    let date = new Date();
+
+    
+    let year = date.getFullYear();
+    let month = ('0' + (date.getMonth() + 1)).slice(-2); 
+    let day = ('0' + date.getDate()).slice(-2);
+
+    let minDate = year + '-' + month + '-' + day;
+
+    $('#data_entrada').prop('min', minDate);
+    $('#data_sortida').prop('min', minDate);
+
+
     $('#form').on('submit', validateForm);
 
     $('#nom').on('blur', validarName);
@@ -15,7 +28,7 @@ function main()
     $('#nif').on('blur', validarNif);
     $('#data_naix').on('blur', validarDataNaix);
     $('#password').on('blur', validarPass);
-
+    $('#data_entrada').on('blur', validarDataEntrada);
 }
 
 
@@ -170,6 +183,40 @@ function validarPass(){
     }
 }
 
+function validarDataEntrada(){
+    let data_entrada = $('#data_entrada');
+
+    if($(data_entrada).next().prop('class').includes('error')){
+        $(data_entrada).next().remove();
+        $(data_entrada).removeClass('border-red')
+    }
+
+    
+    if($(data_entrada).val().length == 0){
+        
+        $(data_entrada).addClass('border-red')
+        $(data_entrada).after($(error).text('Es obligatori').clone() );
+        
+        return 0;
+    }else if($(data_entrada).val().trim().length != 10){
+
+        $(data_entrada).addClass('border-red')
+        $(data_entrada).after($(error).text('El format no es correcte').clone());
+        
+        return 0;
+    }else{
+        let date = new Date($(data_entrada).val());
+        let year = date.getFullYear();
+        let month = ('0' + (date.getMonth() + 1)).slice(-2); 
+        let day = ('0' + date.getDate()).slice(-2);
+
+        let minDate = year + '-' + month + '-' + day;
+
+        $('#data_sortida').prop('min', minDate);
+
+        return 1;
+    }
+}
 
 
 
