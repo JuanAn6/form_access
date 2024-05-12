@@ -363,7 +363,7 @@ function validarNumNens(){
     }
 }
 
-function validarNumNens(){
+function validarTipus(){
     let tipus = $('#tipus');
 
     if($(tipus).next().prop('class').includes('error')){
@@ -379,14 +379,14 @@ function validarNumNens(){
         return 0;
     } else (!isNaN(Number($('#num_adults').val())) && !isNaN(Number($('#num_nens').val()))){
         let maxPersones = 0;
-        
-        switch
 
-
-        if()
-        
-
-
+        if(Number($(tipus).val()) == -1 || Number($(tipus).val()) < (Number($('#num_adults').val()) + Number($('#num_nens').val())) ){
+            
+            $(tipus).addClass('border-red')
+            $(tipus).after($(error).text('Es obligatori').clone() );
+            
+            return 0;
+        }
 
         return 1;
     }
@@ -397,6 +397,23 @@ function validateForm(event)
 {
     event.preventDefault();
 
+    if( validarName() &&
+        validarCognom() &&
+        validarNif() &&
+        validarDataNaix() &&
+        validarPass() &&
+        validarDataEntrada() &&
+        validarDataSortida() &&
+        validarRegim() &&
+        validarProposit() &&
+        validarNumAdults() &&
+        validarNumNens() &&
+        validarTipus() 
+    ){
+        return 1;
+    }else{
+        return 0;
+    }
     
 
 }
