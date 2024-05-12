@@ -33,6 +33,9 @@ function main()
     $('#regim').on('blur', validarRegim);
     $('#proposit').on('blur', validarProposit);
     $('#num_adults').on('blur', validarNumAdults);
+    $('#num_nens').val(0);
+    $('#num_nens').on('blur', validarNumNens);
+    $('#tipus').on('blur', validarTipus);
 
     
 }
@@ -325,6 +328,66 @@ function validarNumAdults(){
         
         return 0;
     }else{
+        return 1;
+    }
+}
+
+function validarNumNens(){
+    let num_nens = $('#num_nens');
+
+    if($(num_nens).next().prop('class').includes('error')){
+        $(num_nens).next().remove();
+        $(num_nens).removeClass('border-red')
+    }
+
+    if($(num_nens).val().length == 0){
+        
+        $(num_nens).addClass('border-red')
+        $(num_nens).after($(error).text('Es obligatori').clone() );
+        
+        return 0;
+    } else if(isNaN(Number($(num_nens).val()))){
+        
+        $(num_nens).addClass('border-red')
+        $(num_nens).after($(error).text('El format es incorrecte').clone() );
+        
+        return 0;
+    }else if(Number($(num_nens).val()) < 0){
+    
+        $(num_nens).addClass('border-red')
+        $(num_nens).after($(error).text('El numero ha de se positiu o 0').clone() );
+        
+        return 0;
+    }else{
+        return 1;
+    }
+}
+
+function validarNumNens(){
+    let tipus = $('#tipus');
+
+    if($(tipus).next().prop('class').includes('error')){
+        $(tipus).next().remove();
+        $(tipus).removeClass('border-red')
+    }
+
+    if($(tipus).val() == -1){
+        
+        $(tipus).addClass('border-red')
+        $(tipus).after($(error).text('Es obligatori').clone() );
+        
+        return 0;
+    } else (!isNaN(Number($('#num_adults').val())) && !isNaN(Number($('#num_nens').val()))){
+        let maxPersones = 0;
+        
+        switch
+
+
+        if()
+        
+
+
+
         return 1;
     }
 }
