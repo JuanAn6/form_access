@@ -377,7 +377,7 @@ function validarTipus(){
         $(tipus).after($(error).text('Es obligatori').clone() );
         
         return 0;
-    } else (!isNaN(Number($('#num_adults').val())) && !isNaN(Number($('#num_nens').val()))){
+    } else if (!isNaN(Number($('#num_adults').val())) && !isNaN(Number($('#num_nens').val()))){
         let maxPersones = 0;
 
         if(Number($(tipus).val()) == -1 || Number($(tipus).val()) < (Number($('#num_adults').val()) + Number($('#num_nens').val())) ){
