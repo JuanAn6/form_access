@@ -51,6 +51,7 @@ body form div .error {
 }
 body form div .border-red {
   border: 3px solid red;
+  background-color: #ffa69d;
 }
 body .submit {
   padding: 10px;
