@@ -5,7 +5,7 @@ let icon = null;
 
 function main()
 {
-    error = $('<span>').addClass('error');
+    error = $('<div>').addClass('error').prop('role', 'alert').prop('aria-live', 'assertive');
     icon = $('<i>').addClass('error').text('X');
 
     let date = new Date();
@@ -21,7 +21,7 @@ function main()
     $('#data_sortida').prop('min', minDate);
 
 
-    $('#form').on('submit', validateForm);
+    $('#form').on('submit',(evt)=>{ console.log(validateForm(evt)) });
 
     $('#nom').on('blur', validarName);
     $('#cognoms').on('blur', validarCognom);
@@ -383,7 +383,7 @@ function validarTipus(){
         if(Number($(tipus).val()) == -1 || Number($(tipus).val()) < (Number($('#num_adults').val()) + Number($('#num_nens').val())) ){
             
             $(tipus).addClass('border-red')
-            $(tipus).after($(error).text('Es obligatori').clone() );
+            $(tipus).after($(error).text('El numero de persones es més gran del que permet l\'habitacio').clone() );
             
             return 0;
         }
@@ -396,6 +396,19 @@ function validarTipus(){
 function validateForm(event)
 {
     event.preventDefault();
+    
+    validarName();
+    validarCognom();
+    validarNif();
+    validarDataNaix();
+    validarPass();
+    validarDataEntrada();
+    validarDataSortida();
+    validarRegim();
+    validarProposit();
+    validarNumAdults();
+    validarNumNens();
+    validarTipus();
 
     if( validarName() &&
         validarCognom() &&
