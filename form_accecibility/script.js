@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', main);
 let error = null;
 let icon = null;
 
+//aria-describedby
+
 function main()
 {
     error = $('<div>').addClass('error').prop('role', 'alert').prop('aria-live', 'assertive');
@@ -53,13 +55,13 @@ function validarName(){
     if($(nom).val().length == 0){
         
         $(nom).addClass('border-red')
-        $(nom).after($(error).text('Es obligatori').clone() );
+        $(nom).after($(error).text('El nom es obligatori').clone() );
         
         return 0;
     }else if($(nom).val().trim().length < 3){
 
         $(nom).addClass('border-red')
-        $(nom).after($(error).text('Ha de tenir minim 3 caracters').clone());
+        $(nom).after($(error).text('El nom ha de tenir minim 3 caracters').clone());
         
         return 0;
     }else{
@@ -80,13 +82,13 @@ function validarCognom(){
     if($(cognom).val().length == 0){
         
         $(cognom).addClass('border-red')
-        $(cognom).after($(error).text('Es obligatori').clone() );
+        $(cognom).after($(error).text('El cognom es obligatori').clone() );
         
         return 0;
     }else if($(cognom).val().trim().length < 3){
 
         $(cognom).addClass('border-red')
-        $(cognom).after($(error).text('Ha de tenir minim 3 caracters').clone());
+        $(cognom).after($(error).text('El cognom ha de tenir minim 3 caracters').clone());
         
         return 0;
     }else{
@@ -114,20 +116,20 @@ function validarNif(){
     if($(nif).val().length == 0){
         
         $(nif).addClass('border-red')
-        $(nif).after($(error).text('Es obligatori').clone() );
+        $(nif).after($(error).text('El NIF es obligatori').clone() );
         
         return 0;
     }else if($(nif).val().trim().length != 9){
 
         $(nif).addClass('border-red')
-        $(nif).after($(error).text('Ha de tenir 9 caracters').clone());
+        $(nif).after($(error).text('El NIF ha de tenir 9 caracters').clone());
         
         return 0;
 
     }else if(lletraCorrecta != $(nif).val().substr($(nif).val().length-1)){
 
         $(nif).addClass('border-red')
-        $(nif).after($(error).text('La lletra no correspon amb el numero').clone());
+        $(nif).after($(error).text('La lletra del NIF no correspon amb el numero').clone());
 
     }else{
         return 1;
@@ -146,13 +148,13 @@ function validarDataNaix(){
     if($(data_naix).val().length == 0){
         
         $(data_naix).addClass('border-red')
-        $(data_naix).after($(error).text('Es obligatori').clone() );
+        $(data_naix).after($(error).text('Data naixement es obligatoria').clone() );
         
         return 0;
     }else if($(data_naix).val().trim().length != 10){
 
         $(data_naix).addClass('border-red')
-        $(data_naix).after($(error).text('El format no es correcte').clone());
+        $(data_naix).after($(error).text('El format de la data naixement no es correcte').clone());
         
         return 0;
     }else{
@@ -173,19 +175,19 @@ function validarPass(){
     if($(pass).val().length == 0){
         
         $(pass).addClass('border-red')
-        $(pass).after($(error).text('Es obligatori').clone() );
+        $(pass).after($(error).text('La password es obligatoria').clone() );
         
         return 0;
     }else if($(pass).val().trim().length < 8){
 
         $(pass).addClass('border-red')
-        $(pass).after($(error).text('Ha de tenir minim 8 caracters').clone());
+        $(pass).after($(error).text('La passord ha de tenir minim 8 caracters').clone());
         
         return 0;
     }else if(! (/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@#$%^&+=!¡?¿.,;:_\-\\]).+$/).test($(pass).val().trim())){
 
         $(pass).addClass('border-red')
-        $(pass).after($(error).text('Ha de tenir minim 1 numero i un caracter especial').clone());
+        $(pass).after($(error).text('La password ha de tenir minim 1 numero i un caracter especial').clone());
     
     }else{
         return 1;
@@ -204,7 +206,7 @@ function validarDataEntrada(){
     if($(data_entrada).val().length == 0){
         
         $(data_entrada).addClass('border-red')
-        $(data_entrada).after($(error).text('Es obligatori').clone() );
+        $(data_entrada).after($(error).text('La data d\'entrada es obligatoria').clone() );
         
         return 0;
     }else if($(data_entrada).val().trim().length != 10){
@@ -248,13 +250,13 @@ function validarDataSortida(){
     if($(data_sortida).val().length == 0){
         
         $(data_sortida).addClass('border-red')
-        $(data_sortida).after($(error).text('Es obligatori').clone() );
+        $(data_sortida).after($(error).text('La data de sortida es obligatoria').clone() );
         
         return 0;
     }else if($(data_sortida).val().trim().length != 10){
 
         $(data_sortida).addClass('border-red')
-        $(data_sortida).after($(error).text('El format no es correcte').clone());
+        $(data_sortida).after($(error).text('El format de la data de sortida no es correcte').clone());
         
         return 0;
     }else{
@@ -274,7 +276,7 @@ function validarRegim(){
     if($(regim).val() == -1){
         
         $(regim).addClass('border-red')
-        $(regim).after($(error).text('Es obligatori').clone() );
+        $(regim).after($(error).text('El regim es obligatori').clone() );
         
         return 0;
     }else{
@@ -293,7 +295,7 @@ function validarProposit(){
     if($(proposit).val() == -1){
         
         $(proposit).addClass('border-red')
-        $(proposit).after($(error).text('Es obligatori').clone() );
+        $(proposit).after($(error).text('El proposit es obligatori').clone() );
         
         return 0;
     }else{
@@ -312,13 +314,13 @@ function validarNumAdults(){
     if($(num_adults).val().length == 0){
         
         $(num_adults).addClass('border-red')
-        $(num_adults).after($(error).text('Es obligatori').clone() );
+        $(num_adults).after($(error).text('El numero de adults es obligatori').clone() );
         
         return 0;
     } else if(isNaN(Number($(num_adults).val()))){
         
         $(num_adults).addClass('border-red')
-        $(num_adults).after($(error).text('El format es incorrecte').clone() );
+        $(num_adults).after($(error).text('El format del numero de adults es incorrecte').clone() );
         
         return 0;
     }else if(Number($(num_adults).val()) < 1){
@@ -343,19 +345,19 @@ function validarNumNens(){
     if($(num_nens).val().length == 0){
         
         $(num_nens).addClass('border-red')
-        $(num_nens).after($(error).text('Es obligatori').clone() );
+        $(num_nens).after($(error).text('El numero de nens es obligatori').clone() );
         
         return 0;
     } else if(isNaN(Number($(num_nens).val()))){
         
         $(num_nens).addClass('border-red')
-        $(num_nens).after($(error).text('El format es incorrecte').clone() );
+        $(num_nens).after($(error).text('El format del numero de nens es incorrecte').clone() );
         
         return 0;
     }else if(Number($(num_nens).val()) < 0){
     
         $(num_nens).addClass('border-red')
-        $(num_nens).after($(error).text('El numero ha de se positiu o 0').clone() );
+        $(num_nens).after($(error).text('El numero de nens ha de ser positiu o 0').clone() );
         
         return 0;
     }else{
@@ -374,7 +376,7 @@ function validarTipus(){
     if($(tipus).val() == -1){
         
         $(tipus).addClass('border-red')
-        $(tipus).after($(error).text('Es obligatori').clone() );
+        $(tipus).after($(error).text('El tipus d\'habitacio es obligatori').clone() );
         
         return 0;
     } else if (!isNaN(Number($('#num_adults').val())) && !isNaN(Number($('#num_nens').val()))){
@@ -410,6 +412,45 @@ function validateForm(event)
     validarNumNens();
     validarTipus();
 
+   
+    if (! validarTipus()){
+        $('#tipus').focus();
+    }
+    if (! validarNumNens()){
+        $('#num_nens').focus();
+    }
+    if (! validarNumAdults()){
+        $('#num_adults').focus();
+    }
+    if (! validarProposit()){
+        $('#proposit').focus();
+    }
+    if (! validarRegim()){
+        $('#regim').focus();
+    }
+    if (! validarDataSortida()){
+        $('#data_sortida').focus();
+    }
+    if (! validarDataEntrada()){
+        $('#data_entrada').focus();
+    }
+    if (! validarPass()){
+        $('#password').focus();
+    }
+    if (! validarDataNaix()){
+        $('#data_naix').focus();
+    }
+    if (! validarNif()){
+        $('#nif').focus();
+    }
+    if (! validarCognom()){
+        $('#cognoms').focus();
+    }
+    if (! validarName()){
+        $('#nom').focus();
+    }
+
+    
     if( validarName() &&
         validarCognom() &&
         validarNif() &&
